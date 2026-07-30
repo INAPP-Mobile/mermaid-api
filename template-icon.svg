@@ -1,18 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
-  <rect width="256" height="256" rx="32" fill="#1a1a2e"/>
-  <!-- Mermaid tail/fin shape -->
-  <path d="M128 40 C 80 80, 60 140, 80 180 C 90 200, 110 210, 128 216 C 146 210, 166 200, 176 180 C 196 140, 176 80, 128 40Z" fill="none" stroke="#00d4aa" stroke-width="6" stroke-linecap="round"/>
-  <!-- Head -->
-  <ellipse cx="128" cy="100" rx="24" ry="20" fill="#00d4aa"/>
-  <!-- Eyes -->
-  <ellipse cx="118" cy="95" rx="4" ry="5" fill="#1a1a2e"/>
-  <ellipse cx="138" cy="95" rx="4" ry="5" fill="#1a1a2e"/>
-  <!-- Arrow flow line -->
-  <path d="M 80 150 L 176 150" stroke="#7c3aed" stroke-width="3" stroke-dasharray="6,4" stroke-linecap="round"/>
-  <polygon points="176,145 186,150 176,155" fill="#7c3aed"/>
-  <!-- Small diagram nodes -->
-  <rect x="50" y="130" width="22" height="14" rx="4" fill="#7c3aed" opacity="0.6"/>
-  <rect x="184" y="130" width="22" height="14" rx="4" fill="#7c3aed" opacity="0.6"/>
-  <!-- Code brackets -->
-  <text x="128" y="196" text-anchor="middle" font-family="monospace" font-size="14" fill="#ff6b6b">&lt;/&gt;</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#15171A"/>
+      <stop offset="100%" stop-color="#00BD9D"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" rx="120" fill="url(#bg)"/>
+  <!-- Mermaid tail shape -->
+  <g transform="translate(400, 380)">
+    <!-- Upper body / torso curves -->
+    <path d="M-70,-120 
+             C-30,-180 30,-180 70,-120 
+             C85,-90 80,-50 70,-20"
+          stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <path d="M-70,-120 
+             C-85,-90 -80,-50 -70,-20"
+          stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <!-- Connecting torso -->
+    <path d="M-70,-20 C-40,10 40,10 70,-20"
+          stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <!-- Tail fin - flowing curves -->
+    <path d="M-70,-20 
+             C-120,40 -170,100 -140,150
+             C-120,180 -80,160 -50,130
+             C-30,110 -20,90 -5,60"
+          stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <path d="M70,-20 
+             C120,40 170,100 140,150
+             C120,180 80,160 50,130
+             C30,110 20,90 5,60"
+          stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <!-- Tail center vein -->
+    <path d="M-5,5 C-15,40 0,80 0,110"
+          stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.6"/>
+    <path d="M5,5 C15,40 0,80 0,110"
+          stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.6"/>
+    <!-- Inner fin detail -->
+    <path d="M-140,150 C-100,140 -70,160 -50,130" 
+          stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.4"/>
+    <path d="M140,150 C100,140 70,160 50,130" 
+          stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.4"/>
+    <!-- Connection dots -->
+    <circle cx="-5" cy="5" r="4" fill="#FFFFFF"/>
+    <circle cx="5" cy="5" r="4" fill="#FFFFFF"/>
+  </g>
 </svg>
