@@ -65,6 +65,7 @@ class BrowserPool {
         "--disable-setuid-sandbox",
         "--disable-dev-shm-usage",
         "--disable-gpu",
+        "--disable-crashpad-forwarding",
       ],
     };
     if (CHROMIUM_PATH) {

@@ -26,6 +26,10 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
+# Make HOME writable for puppeteer cache (appuser has no home)
+ENV HOME=/app \
+    CHROMIUM_PATH=/usr/bin/chromium
+
 # Copy package files first for layer caching
 COPY package*.json ./
 
@@ -34,7 +38,7 @@ RUN npm ci --only=production
 # Copy application code
 COPY . .
 
-# Create non-root user
+# Create non-root user with writable home
 RUN addgroup --system appgroup && \
     adduser --system --ingroup appgroup appuser && \
     chown -R appuser:appgroup /app
