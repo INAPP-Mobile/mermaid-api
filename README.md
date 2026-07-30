@@ -14,6 +14,41 @@ Render Mermaid diagram code to PNG or SVG images via a simple HTTP API. Designed
 - **Health check** — `GET /health` for Railway health monitoring
 - **Input sanitization** — HTML-escaped Mermaid code before rendering
 
+## Deploy and Host
+
+Click the Deploy to Railway button above to launch the Mermaid API service in minutes. Chromium and Puppeteer are pre-installed in the container — no additional configuration needed.
+
+## About Hosting
+
+This template runs a Node.js Express server with Puppeteer for headless Chromium rendering on Railway. A browser pool manages concurrent diagram rendering with automatic browser reuse and resource cleanup.
+
+## Why Deploy
+
+- Self-host a diagram-as-code API without external service dependencies
+- No rate limits or API keys — full control over your rendering pipeline
+- Eliminate cloud diagram service costs with your own single-container deployment
+- Scale horizontally by increasing MAX_CONCURRENT for higher throughput
+
+## Common Use Cases
+
+- CI/CD pipeline — auto-generate architecture diagrams from Markdown
+- Documentation sites — embed live-updating Mermaid diagrams
+- API gateway backend — render diagrams on demand for web/mobile apps
+- Notification and reporting — auto-generated diagram attachments
+
+## Dependencies for
+
+- Node.js 20 — JavaScript runtime
+- Chromium 120+ — Headless browser for SVG-to-PNG rendering
+- Puppeteer 23 — Browser automation and screenshot API
+
+### Deployment Dependencies
+
+| Dependency | Description |
+|------------|-------------|
+| Railway account | Must have access to 1+ service |
+| No database needed | Fully self-contained — no companion services required |
+
 ## Environment Variables
 
 | Variable | Default | Description |
