@@ -143,11 +143,11 @@ async function renderToPng(page, scale) {
   });
   if (!clip) throw new Error("No diagram element found after rendering");
 
-  return page.screenshot({
+  return Buffer.from(await page.screenshot({
     clip,
     type: "png",
     scale: Math.min(Math.max(scale || 2, 1), 4),
-  });
+  }));
 }
 
 async function renderToSvg(page) {
