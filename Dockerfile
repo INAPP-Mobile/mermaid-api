@@ -42,8 +42,7 @@ RUN addgroup --system appgroup && \
 USER appuser
 
 ENV PORT=8080 \
-    NODE_ENV=production \
-    CHROMIUM_PATH=/usr/bin/chromium
+    NODE_ENV=production
 
 EXPOSE 8080
 
