@@ -1,0 +1,10 @@
+{
+  "$schema": "https://railway.com/schemas/template-vars.schema.json",
+  "properties": {
+    "MAX_CONCURRENT": {
+      "type": "number",
+      "defaultValue": 4,
+      "description": "Maximum concurrent Chromium browser instances for rendering diagrams"
+    }
+  }
+}

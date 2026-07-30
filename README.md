@@ -2,7 +2,7 @@
 
 Render Mermaid diagram code to PNG or SVG images via a simple HTTP API. Designed for one-click deployment on Railway.
 
-[![Deploy to Railway](https://railway.app/button.svg)](https://railway.com/deploy/TODO)
+[![Deploy to Railway](https://railway.app/button.svg)](https://railway.com/deploy/UTCX9-)
 
 ## Features
 
