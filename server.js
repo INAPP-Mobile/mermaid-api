@@ -24,6 +24,20 @@ const MAX_CONCURRENT = parseInt(process.env.MAX_CONCURRENT, 10) || 4;
 const app = express();
 app.use(express.json({ limit: "1mb" }));
 
+// ── Request logging ──────────────────────────────────────────────────────
+// Railway captures stdout, so one line per request is the service's log.
+// Health probes are logged on purpose: their cadence is what keeps a
+// serverless (sleepApplication) container warm, and it is otherwise
+// invisible because /health itself logs nothing. Bodies are never logged
+// (diagram code can be 50k chars); renders log a one-line summary instead.
+app.use((req, res, next) => {
+  const t0 = Date.now();
+  res.on("finish", () => {
+    console.log(`[mermaid] ${req.method} ${req.path} ${res.statusCode} ${Date.now() - t0}ms`);
+  });
+  next();
+});
+
 // ── Puppeteer browser pool ─────────────────────────────────────────────────
 
 class BrowserPool {
@@ -230,8 +244,10 @@ app.post("/render", async (req, res) => {
     const result = await handleRender(code, format || "png", theme || "default", scale);
     res.set("Content-Type", result.contentType);
     res.send(result.data);
+    console.log(`[mermaid] render ok format=${format || "png"} code_len=${code.length} bytes=${result.data.length}`);
   } catch (err) {
     const status = err.status || 500;
+    console.error(`[mermaid] render error status=${status} ${err.message}`);
     res.status(status).json({ error: err.message });
   }
 });
@@ -242,8 +258,10 @@ app.get("/render", async (req, res) => {
     const result = await handleRender(code, format || "png", theme || "default", Number(scale) || undefined);
     res.set("Content-Type", result.contentType);
     res.send(result.data);
+    console.log(`[mermaid] render ok format=${format || "png"} code_len=${code.length} bytes=${result.data.length}`);
   } catch (err) {
     const status = err.status || 500;
+    console.error(`[mermaid] render error status=${status} ${err.message}`);
     res.status(status).json({ error: err.message });
   }
 });
